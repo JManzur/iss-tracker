@@ -2,6 +2,8 @@
 
 This is a demo application built using Flask, this demo application demonstrates how to correctly generate healthchecks pages and how to store data in the Docker ephemeral storage. The application makes calls to the [Open Notify ISS Location API](http://api.open-notify.org) to display the current location of the [International Space Station (ISS)](https://www.nasa.gov/mission_pages/station/main/index.html) in real-time.
 
+![App Screenshot](images/iss_tracker.png)
+
 ## Functionality
 
 The application has the following functionality:
@@ -23,16 +25,23 @@ The following technologies were used to build this application:
 
 ## Usage
 
-To run the application, you can use Docker. First, clone the repository to your local machine:
+You can run the application using either plain Docker or Docker-Compose. Follow the steps below:
 
-`git clone https://github.com/JManzur/iss-tracker.git`
+Using plain Docker:
+- Clone the repository to your local machine:
+  - `git clone https://github.com/JManzur/iss-tracker.git`
+- Navigate to the cloned repository and build the Docker container:
+  - `cd iss-tracker`
+  - `docker build -t iss-tracker .`
+- Run the Docker container:
+  - `docker run -p 5000:5000 --name iss-tracker iss-tracker`
+- You can then access the application by visiting `http://localhost:5000` in your web browser.
 
-Then, navigate to the cloned repository and build the Docker container:
 
-`cd iss-tracker docker build -t iss-tracker .`
-
-Finally, run the Docker container:
-
-`docker run -p 5000:5000 --name iss-tracker iss-tracker`
-
-You can then access the application by visiting `http://localhost:5000` in your web browser.
+Using Docker-Compose:
+- Clone the repository to your local machine:
+  - `git clone https://github.com/JManzur/iss-tracker.git`
+- Navigate to the cloned repository and run the Docker container:
+  - `cd iss-tracker`
+  - `docker-compose up -d`
+- You can then access the application by visiting `http://localhost:5000` in your web browser.
