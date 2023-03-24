@@ -1,6 +1,6 @@
 # Flask ISS Tracker
 
-This is a demo application built using Flask, this demo application demonstrates how to correctly generate healthchecks pages and how to store data in the Docker ephemeral storage. The application makes calls to the [Open Notify ISS Location API](http://api.open-notify.org/iss-now.json) to display the current location of the International Space Station (ISS) in real-time, and with each page refresh, it logs the API response to a local file.
+This is a demo application built using Flask, this demo application demonstrates how to correctly generate healthchecks pages and how to store data in the Docker ephemeral storage. The application makes calls to the [Open Notify ISS Location API](http://api.open-notify.org) to display the current location of the [International Space Station (ISS)](https://www.nasa.gov/mission_pages/station/main/index.html) in real-time.
 
 ## Functionality
 
@@ -25,14 +25,14 @@ The following technologies were used to build this application:
 
 To run the application, you can use Docker. First, clone the repository to your local machine:
 
-`git clone https://github.com/your-username/flask-iss-tracker.git`
+`git clone https://github.com/JManzur/iss-tracker.git`
 
 Then, navigate to the cloned repository and build the Docker container:
 
-`cd flask-iss-tracker docker build -t flask-iss-tracker .`
+`cd iss-tracker docker build -t iss-tracker .`
 
 Finally, run the Docker container:
 
-`docker run -p 5000:5000 --name iss-tracker flask-iss-tracker`
+`docker run -p 5000:5000 --name iss-tracker iss-tracker`
 
 You can then access the application by visiting `http://localhost:5000` in your web browser.
