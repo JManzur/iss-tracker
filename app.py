@@ -22,11 +22,17 @@ def status():
         # Check if ISS API is available
         response = http.request('GET', '{0}'.format(iis_now_api))
         if response.status == 200:
-            return jsonify({'status': 'OK'}), 200
+            return jsonify({
+                'status': 'OK',
+                'http_status': response.status,
+                }), 200
         else:
             return jsonify({'status': 'ISS API is not available'}), 503
     except Exception as e:
-        return jsonify({'status': str(e)}), 503
+        return jsonify({
+            'status': 'ISS API is not available',
+            'error_message': '{0}'.format(str(e))
+            }), 503
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5002)

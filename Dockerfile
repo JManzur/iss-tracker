@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM python:3.12.0a6-bullseye
 
 WORKDIR /app
 
@@ -7,6 +7,6 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 5002
 
 CMD ["python3", "app.py"]
