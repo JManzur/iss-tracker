@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ISS Tracker</title>
+    <style>
+      /* Define basic styles for body */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 16px;
+        color: #333;
+        background-color: #f7f7f7;
+      }
+      
+      /* Define styles for header */
+      header {
+        background-color: #222;
+        color: #fff;
+        padding: 10px;
+      }
+      
+      /* Define styles for main content area */
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Define styles for dark mode */
+      body.dark-mode {
+        background-color: #333;
+        color: #f7f7f7;
+      }
+      
+      body.dark-mode header {
+        background-color: #555;
+      }
+      
+      body.dark-mode main {
+        background-color: #444;
+        color: #f7f7f7;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      
+      /* Define styles for links */
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      /* Define styles for footer */
+      footer {
+        position: fixed;
+        right: 0;
+        top: 0;
+        padding: 10px;
+      }
+      
+      footer button {
+        font-size: 16px;
+        padding: 5px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 align="center">International Space Station Tracker</h1>
+    </header>
+    <main>
+      <h2>Current ISS Location</h2>
+      <p>Latitude: {{ data.iss_position.latitude }}</p>
+      <p>Longitude: {{ data.iss_position.longitude }}</p>
+    </main>
+    <br>
+    <div class="attribution" style="text-align: center;">
+      Demo Application by: <a href="https://jmanzur.com/">JManzur</a>
+    </div>
+    <footer>
+      <button id="toggle-dark-mode">Toggle Dark Mode</button>
+    </footer>
+    <script>
+      // Add event listener to toggle dark mode
+      document.addEventListener('DOMContentLoaded', function() {
+        var toggle = document.getElementById('toggle-dark-mode');
+        toggle.addEventListener('click', function() {
+          document.body.classList.toggle('dark-mode');
+        });
+      });
+    </script>
+  </body>
+</html>
