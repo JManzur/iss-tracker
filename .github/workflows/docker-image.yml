@@ -18,6 +18,14 @@ jobs:
     - name: Get the application source code
       uses: actions/checkout@v3
 
+    - name: Check for secrets using Gitleaks
+      uses: gitleaks/gitleaks-action@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITLEAKS_NOTIFY_USER_LIST: '@jmanzur'
+        GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true
+        GITLEAKS_ENABLE_SUMMARY: true
+  
     - name: Echo the image name for debugging
       run: echo "Building the image ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}"
   
@@ -37,7 +45,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
-    
+
     - name: Security Scan using Snyk
       uses: snyk/actions/docker@master
       continue-on-error: true
