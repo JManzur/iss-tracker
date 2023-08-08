@@ -11,7 +11,7 @@ def index():
     response = http.request('GET', '{0}'.format(iis_now_api))
     data = json.loads(response.data.decode('utf-8'))
 
-    with open('api_log.txt', 'a') as f:
+    with open('iss-now.log', 'a') as f:
         f.write(str(data) + '\n')
 
     return render_template('index.html', data=data)

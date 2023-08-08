@@ -10,7 +10,7 @@ The application has the following functionality:
 
 -   Displays the current location of the ISS on a web page.
 -   Allows users to switch between light and dark mode using a toggle button.
--   Saves the response from the ISS API in a local log file (`api_log.txt`) every time the page is refreshed.
+-   Saves the response from the ISS API in a local log file (`aiss-now.log`) every time the page is refreshed.
 -   Provides a `/status` endpoint that returns a health check status based on whether the ISS API is available or not.
 
 ## Technologies Used
@@ -34,8 +34,8 @@ Using plain Docker:
   - `cd iss-tracker`
   - `docker build -t iss-tracker .`
 - Run the Docker container:
-  - `docker run -p 5000:5000 --name iss-tracker iss-tracker`
-- You can then access the application by visiting `http://localhost:5000` in your web browser.
+  - `docker run -p 5002:5002 --name iss-tracker iss-tracker`
+- You can then access the application by visiting `http://localhost:5002` in your web browser.
 
 
 Using Docker-Compose:
@@ -44,4 +44,4 @@ Using Docker-Compose:
 - Navigate to the cloned repository and run the Docker container:
   - `cd iss-tracker`
   - `docker-compose up -d`
-- You can then access the application by visiting `http://localhost:5000` in your web browser.
+- You can then access the application by visiting `http://localhost:5002` in your web browser.

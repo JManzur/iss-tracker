@@ -3,7 +3,7 @@ version: '3'
 services:
   iss-tracker:
     container_name: iss-tracker
-    image: jmanzur/iss-tracker
+    image: jmanzur/iss-tracker:latest
     restart: always
     ports:
       - 5002:5002/tcp
